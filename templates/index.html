@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content%}
+    <!--<h1>Pagina de login</h1>
+    <form action="" method="post">
+        <label for="">Usuario</label>
+        <input type="text" name="usuario" class="form-control">
+
+        <label for="">Password</label>
+        <input type="password" name="password" class="form-control">
+
+        <input type="submit" class="btn btn-success mt-3" value="Iniciar sesion">
+    </form>-->
+    <h1>Bienvenido</h1>
+
+    <div>
+        <h2>FUENTES DISPONIBLES</h2>
+        {% for fuente in fuentes %}
+            <a href="{{url_for('mostrar_noticias', fuente_id = fuente.id)}}">
+                {{fuente.nombre}}
+            </a><hr>
+        {% endfor %}
+    </div>
+    <div class="container">
+        <h2>Noticias</h2>
+        <ul>
+            {% for noticia in noticias %}
+                <li>
+                    <h3>{{ noticia.title }}</h3>
+                    <p>{{ noticia.summary }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    
+{%endblock%}
+
